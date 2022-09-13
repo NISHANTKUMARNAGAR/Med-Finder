@@ -1,0 +1,31 @@
+{% extends "m.html" %}
+{% block m1 %}
+
+<div class="card" style="width: 18rem;">
+  {% if photo %}
+    <img src="../static/photos/{{photo}}" class="card-img-top" alt="...">
+    <br><a href="changemedicalphoto">&emsp;Change Photo</a>
+  {% endif %}
+    <div class="card-body">
+    {% if info %}
+        <p class="card-text">Name:&emsp;{{info[0]}}</p>
+        <p class="card-text">Owner:&emsp;{{info[1]}}</p>
+        <p class="card-text">License Number:&emsp;{{info[2]}}</p>
+        <p class="card-text">Address:&emsp;{{info[3]}}</p>
+        <p class="card-text">Contact:&emsp;{{info[4]}}</p>
+        <p class="card-text">Email:&emsp;{{info[5]}}</p>
+    <form method="post" action="medicalprofile1">
+        <button type="submit" class="btn btn-primary" name="b1">Edit</button>
+    </form>
+    {% elif msg %}
+      {{msg}}
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock %}
+
+    <link rel="stylesheet" href="static/bootstrap.css">
+    <script src="static/jquery-3.4.1.min.js"></script>
+    <script src="static/bootstrap.js"></script>

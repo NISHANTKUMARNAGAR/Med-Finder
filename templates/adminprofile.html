@@ -1,0 +1,24 @@
+{% extends "a.html" %}
+{% block a1 %}
+
+<div class="card" style="width: 18rem;">
+  {% if photo %}
+    <img src="../static/photos/{{photo}}" class="card-img-top" alt="...">
+    <br><a href="changeadminphoto">&emsp;Change Photo</a>
+  {% endif %}
+    <div class="card-body">
+    {% if info %}
+        <p class="card-text">Name:&emsp;{{info[0]}}</p>
+        <p class="card-text">Address:&emsp;{{info[1]}}</p>
+        <p class="card-text">Contact:&emsp;{{info[2]}}</p>
+        <p class="card-text">Email:&emsp;{{info[3]}}</p>
+    <form method="post" action="adminprofile1">
+        <button type="submit" class="btn btn-primary" name="b1">Edit</button>
+    </form>
+    {% elif msg %}
+      {{msg}}
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

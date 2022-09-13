@@ -1,0 +1,16 @@
+{% extends "a.html" %}
+{% block a1 %}
+
+<h1>Photo Upload</h1>
+
+<form method="post" action="adminphotoupload" enctype="multipart/form-data">
+  <p>File<input type="file" name="f1" /></p>
+  <p><input type="submit" name="b1" value="upload"></p>
+</form>
+
+{% if result %}
+<h3>{{result}}</h3>
+<a href="adminprofile">Continue....</a>
+{% endif %}
+
+{% endblock %}

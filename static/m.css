@@ -1,0 +1,85 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+.main
+{
+    height:auto;
+    width:1525px;
+    float:left;
+}
+.wrapper
+{
+    height:auto;
+    width:1475px;
+    float:left;
+    margin:0 25px 0 25px;
+}
+span
+{
+    margin-left:20px;
+}
+.banner
+{
+    height:60px;
+    width:1475px;
+    float:left;
+    background-color:red;
+    color:white;
+    font-size:50px;
+    margin-top:15px;
+}
+.menu
+{
+    height:50px;
+    width:1475px;
+    float:left;
+    background-color:skyblue;
+    color:red;
+    font-size:20px;
+    margin-top:15px;
+    line-height:50px;
+}
+.ul
+{
+    list-style:none;
+}
+.l2
+{
+    display:inline-block;
+}
+.a
+{
+    text-decoration:none;
+    display:block;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:0px;
+}
+.a:hover
+{
+    color:white;
+}
+.middle
+{
+    height:500px;
+    width:1475px;
+    float:left;
+    margin-top:20px;
+}
+.content
+{
+    height:500px;
+    width:780px;
+    float:left;
+    font-size:20px;
+}
+.ad
+{
+    height:500px;
+    width:675px;
+    float:right;
+    background-image:url(Indian_-_Dewali_celebrations_at_Kotah_-_Google_Art_Project.jpg);
+    background-size:100% 100%;
+}

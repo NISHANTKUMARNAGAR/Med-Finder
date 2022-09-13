@@ -1,0 +1,12 @@
+{% extends "m.html" %}
+{% block m1 %}
+
+<h1>Photo Delete</h1>
+{% if data=="success" %}
+<h3>Delete Photo</h3>
+{% else %}
+<h3>Error: cant delete</h3>
+{% endif %}
+<p><a href="medicalphotoupload">Continue..</a></p>
+
+{% endblock %}

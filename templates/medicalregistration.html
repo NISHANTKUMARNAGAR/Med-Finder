@@ -1,0 +1,169 @@
+{% extends "a.html" %}
+{% block a1 %}
+
+<h1>medical registration form</h1>
+<form method="post" onsubmit="return check()" action="medicalform">
+  <p>Medical name&emsp;<input type="text" id="t1" name="f1"><span id="s1"></span></p>
+  <p>Owner&emsp;<input type="text" id="t2" name="f2"><span id="s2"></span></p>
+  <p>License Number&emsp;<input type="text" id="t3" name="f3"><span id="s3"></span></p>
+  <p>Address&emsp;<input type="text" id="t4" name="f4"><span id="s4"></span></p>
+  <p>Contact&emsp;<input type="text" id="t5" name="f5"><span id="s5"></span></p>
+  <p>Email&emsp;<input type="email" id="t6" name="f6"><span id="s6"></span></p>
+  <p>Password&emsp;<input type="password" id="t7" name="f7"><span id="s7"></span></p>
+  <p>Confirm Password&emsp;<input type="password" id="t8" name="f8"><span id="s8"></span></p>
+  <button type="submit">Register</button>
+</form>
+<script type="text/javascript">
+  function check()
+  {
+    var t1=document.getElementById("t1");
+    var t2=document.getElementById("t2");
+    var t3=document.getElementById("t3");
+    var t4=document.getElementById("t4");
+    var t5=document.getElementById("t5");
+    var t6=document.getElementById("t6");
+    var t7=document.getElementById("t7");
+    var t8=document.getElementById("t8");
+
+    var a=t1.value;
+    var b=t2.value;
+    var c=t3.value;
+    var d=t4.value;
+    var e=t5.value;
+    var f=t6.value;
+    var g=t7.value;
+    var h=t8.value;
+
+    var sp1=document.getElementById("s1");
+    var sp2=document.getElementById("s2");
+    var sp3=document.getElementById("s3");
+    var sp4=document.getElementById("s4");
+    var sp5=document.getElementById("s5");
+    var sp6=document.getElementById("s6");
+    var sp7=document.getElementById("s7");
+    var sp8=document.getElementById("s8");
+
+    if(a==null||a=="")
+    {
+      sp1.innerHTML="enter medical name";
+      t1.focus();
+      return false;
+    }
+    else if(alphabet(a)==false)
+    {
+      sp1.innerHTML="enter alphabets only";
+      t1.select();
+      return false;
+    }
+    else if(b==null||b=="")
+    {
+      sp2.innerHTML="enter owner";
+      t2.focus();
+      return false;
+    }
+    else if(alphabet(b)==false)
+    {
+      sp2.innerHTML="enter alphabets only";
+      t2.select();
+      return false;
+    }
+    else if(c==null||c=="")
+    {
+      sp3.innerHTML="enter license number";
+      t3.focus();
+      return false;
+    }
+    else if(number(c)==false)
+    {
+      sp3.innerHTML="enter numbers only"
+      t3.select()
+      return false;
+    }
+    else if(d==null||d=="")
+    {
+      sp4.innerHTML="enter address";
+      t4.focus();
+      return false;
+    }
+    else if(e==null||e=="")
+    {
+      sp5.innerHTML="enter contact number";
+      t5.focus();
+      return false;
+    }
+    else if(number(e)==false)
+    {
+      sp5.innerHTML="enter numeric data only";
+      t5.select();
+      return false;
+    }
+    else if(f==null||f=="")
+    {
+      sp6.innerHTML="enter email";
+      t6.focus();
+      return false;
+    }
+    else if(g==null||g=="")
+    {
+      sp7.innerHTML="enter password";
+      t7.focus();
+      return false;
+    }
+    else if(h==null||h=="")
+    {
+      sp8.innerHTML="enter password again";
+      t8.focus();
+      return false;
+    }
+    else if(g!=h)
+    {
+      sp8.innerHTML="incorrect password";
+      t8.select();
+      return false;
+    }
+
+    function number(val)
+    {
+      var ch;
+      var f=true;
+      for(var i=0;i<val.length && f==true;i++)
+      {
+        ch=val.charAt(i);
+        if(ch>='0' && ch<="9")
+        {
+          f=true;
+        }
+        else
+        {
+          f=false;
+        }
+      }
+      return f;
+    }
+
+    function alphabet(val)
+    {
+      var ch;
+      var f=true;
+      for(var i=0;i<val.length && f==true;i++)
+      {
+        ch=val.charAt(i);
+        if(ch>='a' && ch<='z'||ch>='A' && ch<='Z'||ch=='')
+        {
+          f=true;
+        }
+        else
+        {
+          f=false;
+        }
+      }
+      return f;
+    }
+  }
+</script>
+
+{% if msg %}
+<h3>{{ msg }}</h3>
+{% endif %}
+
+{% endblock %}

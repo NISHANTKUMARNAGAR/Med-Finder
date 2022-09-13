@@ -1,0 +1,40 @@
+{% extends "m.html" %}
+{% block m1 %}
+
+{% if info %}
+
+
+    {% for d in info %}
+
+            <div class=" card" style="width: 18rem;">
+              <div class="card-body">
+                <p class="card-text">
+                      Med-id: {{d[0]}}<br>
+                      Name of Medicine: {{d[1]}}<br>
+                      Company Name: {{d[2]}}<br>
+                      Price: {{d[3]}}<br>
+                </p>
+                    <form method="post" action="editmedicineinfo">
+                        <input type="hidden" name="h1" value="{{d[1]}}">
+                        <input type="submit" class="btn btn-primary" class="card-link" name="b1" value="Edit">
+                    </form>
+                    <form method="post" action="deletemedicineinfo">
+                        <input type="hidden" name="h2" value="{{d[1]}}">
+                        <input type="submit" class="btn btn-primary" class="card-link" name="b2" value="Delete">
+                    </form>
+
+              </div>
+            </div>
+
+    {% endfor %}
+
+{% elif msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+
+{% endblock %}
+
+
+    <link rel="stylesheet" href="static/bootstrap.css">
+    <script src="static/jquery-3.4.1.min.js"></script>
+    <script src="static/bootstrap.js"></script>

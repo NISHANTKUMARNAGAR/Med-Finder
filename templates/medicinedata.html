@@ -1,0 +1,110 @@
+{% extends "m.html" %}
+{% block m1 %}
+<br>
+<h1>Enter Medicine Data</h1>
+<br>
+<form method="post" onsubmit="return check()" action="medicineinfo">
+  <p>Name&emsp;<input type="text" id="t1" name="f1"><span id="s1"></span></p>
+  <p>Company Name&emsp;<input type="text" id="t2" name="f2"><span id="s2"></span></p>
+  <p>Price&emsp;<input type="text" id="t3" name="f3"><span id="s3"></span></p>
+  <button type="submit">Submit</button>
+</form>
+
+<script type="text/javascript">
+  function check()
+  {
+    var t1=document.getElementById("t1");
+    var t2=document.getElementById("t2");
+    var t3=document.getElementById("t3");
+
+    var a=t1.value;
+    var b=t2.value;
+    var c=t3.value;
+
+    var sp1=document.getElementById("s1");
+    var sp2=document.getElementById("s2");
+    var sp3=document.getElementById("s3");
+
+    if(a==null||a=="")
+    {
+      sp1.innerHTML="enter medicine name";
+      t1.focus();
+      return false;
+    }
+    else if(alphabet(a)==false)
+    {
+      sp1.innerHTML="enter alphabets only";
+      t1.select();
+      return false;
+    }
+    else if(b==null||b=="")
+    {
+      sp2.innerHTML="enter company name";
+      t2.focus();
+      return false;
+    }
+    else if(alphabet(b)==false)
+    {
+      sp2.innerHTML="enter alphabets only";
+      t2.select();
+      return false;
+    }
+    else if(c==null||c=="")
+    {
+      sp3.innerHTML="enter price";
+      t3.focus();
+      return false;
+    }
+    else if(number(c)==false)
+    {
+      sp3.innerHTMl="enter number only";
+      t3.select();
+      return false;
+    }
+
+
+    function number(val)
+    {
+      var ch;
+      var f=true;
+      for(var i=0;i<val.length && f==true;i++)
+      {
+        ch=val.charAt(i);
+        if(ch>='0' && ch<="9")
+        {
+          f=true;
+        }
+        else
+        {
+          f=false;
+        }
+      }
+      return f;
+    }
+
+    function alphabet(val)
+    {
+      var ch;
+      var f=true;
+      for(var i=0;i<val.length && f==true;i++)
+      {
+        ch=val.charAt(i);
+        if(ch>='a' && ch<='z'||ch>='A' && ch<='Z'||ch==' ')
+        {
+          f=true;
+        }
+        else
+        {
+          f=false;
+        }
+      }
+      return f;
+    }
+  }
+</script>
+
+{% if msg %}
+<h3>{{ msg }}</h3>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<br>
+<h1>&emsp;Results for {{name}}:</h1>
+<br>
+<br>
+
+{% if result %}
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Company</th>
+      <th scope="col">Price</th>
+      <th scope="col">Medical</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Address</th>
+      <th scope="col">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in result %}
+      <tr>
+          <td>{{r[0]}}</td>
+          <td>{{r[1]}}</td>
+          <td>{{r[2]}}</td>
+          <td>{{r[3]}}</td>
+          <td>{{r[4]}}</td>
+          <td>{{r[5]}}</td>
+          <td>{{r[6]}}</td>
+      </tr>
+   {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+    <link rel="stylesheet" href="static/bootstrap.css">
+    <script src="static/jquery-3.4.1.min.js"></script>
+    <script src="static/bootstrap.js"></script>
